@@ -734,7 +734,8 @@ namespace MatchZy
                     if (playerData[key].TeamNum == 3)
                     {
                         matchzyTeam1.teamName = "team_" + RemoveSpecialCharacters(playerData[key].PlayerName.Replace(" ", "_"));
-                        foreach (var coach in matchzyTeam1.coach) {
+                        foreach (var coach in matchzyTeam1.coach)
+                        {
                             coach.Clan = $"[{matchzyTeam1.teamName} COACH]";
                         }
                         break;
@@ -753,7 +754,8 @@ namespace MatchZy
                     if (playerData[key].TeamNum == 2)
                     {
                         matchzyTeam2.teamName = "team_" + RemoveSpecialCharacters(playerData[key].PlayerName.Replace(" ", "_"));
-                        foreach (var coach in matchzyTeam2.coach) {
+                        foreach (var coach in matchzyTeam2.coach)
+                        {
                             coach.Clan = $"[{matchzyTeam2.teamName} COACH]";
                         }
                         break;
@@ -1176,7 +1178,7 @@ namespace MatchZy
                 PrintToPlayerChat(player, Localizer["matchzy.pause.techpausenotenabled"]);
                 return;
             }
-            if(!string.IsNullOrEmpty(techPausePermission.Value) && techPausePermission.Value != "\"\"")
+            if (!string.IsNullOrEmpty(techPausePermission.Value) && techPausePermission.Value != "\"\"")
             {
                 if (!IsPlayerAdmin(player, "css_pause", techPausePermission.Value))
                 {
@@ -1391,7 +1393,7 @@ namespace MatchZy
             }
             if (isSideSelectionPhase)
             {
-                player!.PrintToChat($" {ChatColors.Green}Side Selection: {ChatColors.Default}.stay, .switch");
+                player!.PrintToChat($" {ChatColors.Green}Side Selection: {ChatColors.Default}.stay, .switch, .ct, .t");
                 return;
             }
             if (matchStarted)
@@ -2043,7 +2045,7 @@ namespace MatchZy
             foreach (var player in players)
             {
                 if (!IsPlayerValid(player)) continue;
-                
+
                 if (teamSpawns[player.TeamNum].Count == 0) break;
 
                 int randomIndex = random.Next(teamSpawns[player.TeamNum].Count);
